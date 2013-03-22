@@ -21,3 +21,5 @@ Example
 ```
 
 The code is an array of the ASCII values of the keys you want them to press. the example shows UP,DOWN,LEFT,RIGHT,a,b,c.
+
+Jburliegh1 has kindly made something fun with it :) http://codepen.io/jburleigh1/pen/usHCK
