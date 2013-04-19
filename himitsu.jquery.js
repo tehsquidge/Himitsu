@@ -11,23 +11,27 @@
              
         var defaults = {
             code: [38,40,37,39,65,66,67],
-            callback: $.noop()
+            codeComplete: $.noop,
+            correctKey: $.noop,
+            wrongKey: $.noop
         }
         
         plugin.init = function() {
             plugin.settings = $.extend({}, defaults, options);
 			plugin.settings.i = 0;
 			$('html').keyup(function(event) {
-				
-				if(event.which == plugin.settings.code[plugin.settings.i])
+				if(event.which == plugin.settings.code[plugin.settings.i]){
 					plugin.settings.i++;
-				else
+                    plugin.settings.correctKey.call(this, event.which);
+				}else{
 					plugin.settings.i = 0;
+                    plugin.settings.wrongKey.call(this, event.which);
+                }
 				if(plugin.settings.i == plugin.settings.code.length)
 				{
-					plugin.settings.callback.call(this);
+                    plugin.settings.i = 0;
+					plugin.settings.codeComplete.call(this);
 				}
-				console.log(plugin.settings.i);
 			});
         }
         

@@ -5,15 +5,29 @@
 		<script>
 			$(document).ready( function(){
 				$('html').himitsu(
-				{callback:
-					function(){
-						document.body.style.backgroundImage = "url(http://www.thelearningsafari.com/giraffe.JPG)";
-					}
+				{
+					codeComplete:
+						function(){
+							document.body.style.backgroundImage = "url(http://www.thelearningsafari.com/giraffe.JPG)";
+						},
+					correctKey:
+						function(key){
+							$('#output').append("<span class=\"correct\">YAY!</span> ");
+						},
+					wrongKey:
+						function(){
+							$('#output').append("<span class=\"fail\">Wrong, reset!</span> ");
+						}
 				});
 			});
 		</script>
 	</head>
 	<body>
+		<style type="text/css">
+			.correct { color: green;}
+			.fail { color: red;}
+		</style>
 		<p>can you press: UP, DOWN, LEFT RIGHT, a, b, c?</p>
+		<p id="output"></p>
 	</body>
 </html>
