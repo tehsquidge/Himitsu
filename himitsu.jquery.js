@@ -34,8 +34,19 @@
 				}
 			});
         }
-        
-        
+		
+        function convertInput(character){
+			convertInput(character, 0);
+		}
+		
+        function convertInput(character, x){
+			if (character[x].isNaN()){
+				
+			} else {
+				return character[x];
+			}
+		}
+		
         plugin.init();
         
         
