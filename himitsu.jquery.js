@@ -41,7 +41,9 @@
 		
         function convertInput(character, x){
 			if (character[x].isNaN()){
-				
+				if (character[x].equalsIgnoreCase("UP"){
+					character[x] = 54;
+				}
 			} else {
 				return character[x];
 			}
