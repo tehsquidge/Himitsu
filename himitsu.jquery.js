@@ -37,18 +37,21 @@
         }
 		
 		 function convertInput(character, x){
-			if (typeof character[x] == "string"){
-				if (character[x].toUpperCase() == "LEFT"){character[x] = 37;}
-				else if (character[x].toUpperCase() == "UP"){character[x] = 38;}
-				else if (character[x].toUpperCase() == "RIGHT"){character[x] = 39;}
-				else if (character[x].toUpperCase() == "DOWN"){character[x] = 40;}
-				else {character[x] = (character[x].charCodeAt(0) - 32);}
-				x++;
-				return convertInput(character, x);
+			 if (character.length > x){
+				if (typeof character[x] == "string"){
+					if (character[x].toUpperCase() == "LEFT"){character[x] = 37;}
+					else if (character[x].toUpperCase() == "UP"){character[x] = 38;}
+					else if (character[x].toUpperCase() == "RIGHT"){character[x] = 39;}
+					else if (character[x].toUpperCase() == "DOWN"){character[x] = 40;}
+					else {character[x] = (character[x].charCodeAt(0) - 32);}
+					x++;
+					return convertInput(character, x);
+				} else {
+					x++;
+					return convertInput(character, x);
+				}
 			} else {
-				x++;
 				return character;
-				return convertInput(character, x);
 			}
 		}
 		
